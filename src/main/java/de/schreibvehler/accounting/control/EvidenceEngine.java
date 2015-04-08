@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import de.schreibvehler.accounting.entities.Evidence;
+import de.schreibvehler.accounting.entities.*;
 
 @Stateless
 public class EvidenceEngine {
@@ -25,5 +25,12 @@ public class EvidenceEngine {
     public List<Evidence> findAll() {
         List<Evidence> allEvidences = em.createNamedQuery("ALL_EVIDENCES", Evidence.class).getResultList();
         return allEvidences;
+    }
+
+    public List<Evidence> findAll(List<EvidenceType> types) {
+        //TODO
+        return findAll();
+//        List<Evidence> evidences = em.createNamedQuery("ALL_EVIDENCES_BY_TYPES", Evidence.class).setParameter(param, value).getResultList();
+//        return evidences;
     }
 }

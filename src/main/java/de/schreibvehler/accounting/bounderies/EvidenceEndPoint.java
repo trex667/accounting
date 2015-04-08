@@ -10,7 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 import de.schreibvehler.accounting.control.EvidenceEngine;
-import de.schreibvehler.accounting.entities.Evidence;
+import de.schreibvehler.accounting.entities.*;
 
 @Path("evidence")
 @Produces(MediaType.APPLICATION_JSON)
@@ -23,6 +23,12 @@ public class EvidenceEndPoint {
     public List<Evidence> getEvidences() {
       List<Evidence> allEvidences = evidenceEngine.findAll();
       return allEvidences;
+    }
+
+    @GET
+    public List<Evidence> getEvidences( @QueryParam("type") List<EvidenceType> types) {
+        List<Evidence> allEvidences = evidenceEngine.findAll(types);
+        return allEvidences;
     }
     
     @GET
