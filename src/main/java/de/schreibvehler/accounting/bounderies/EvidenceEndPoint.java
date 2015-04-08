@@ -1,6 +1,7 @@
 package de.schreibvehler.accounting.bounderies;
 
 import java.net.URI;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -13,11 +14,16 @@ import de.schreibvehler.accounting.entities.Evidence;
 
 @Path("evidence")
 @Produces(MediaType.APPLICATION_JSON)
-//@Stateless
 public class EvidenceEndPoint {
 
     @Inject
     private EvidenceEngine evidenceEngine;
+    
+    @GET
+    public List<Evidence> getEvidences() {
+      List<Evidence> allEvidences = evidenceEngine.findAll();
+      return allEvidences;
+    }
     
     @GET
     @Path("{id}")
@@ -43,5 +49,4 @@ public class EvidenceEndPoint {
     public String echo(@PathParam("message") String message) {
         return message;
     }
-
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+@NamedQueries({@NamedQuery(name = "ALL_EVIDENCES", query = "select e from Evidence e")})
+
 @Entity
 @Access(AccessType.FIELD)
 public class Evidence {
