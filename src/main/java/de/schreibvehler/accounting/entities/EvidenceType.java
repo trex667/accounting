@@ -3,7 +3,12 @@ package de.schreibvehler.accounting.entities;
 
 public enum EvidenceType {
     LVChr("Lebensversicherung Christian"),
-    RLVChr("Riskolebensversicherung Christian");
+    RLVChr("Riskolebensversicherung Christian"),
+    KfzV("Kfz Versicherung"),
+    GehaltChr("Gehalt Christian"),
+    GehaltPetra("Gehalt Petra"),
+    Kindergeld("Kindergeld"),
+    sonstiges("Sonstiges");
     
     private final String description;
     

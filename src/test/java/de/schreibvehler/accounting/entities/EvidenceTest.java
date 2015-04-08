@@ -81,10 +81,10 @@ public class EvidenceTest {
 //        ObjectMapper mapper = new ObjectMapper();
 //        Evidence evidence = new Evidence();
 //        Integer pk = 4711;
-//        evidence.setId(pk);
 //        evidence.setValue(123.23F);
 //        evidence.setDate(new Date());
 //        evidence.setDescription("description");
+//        evidence.setType(EvidenceType.RLVChr);
 //        
 //        mapper.writeValue(new File("d://tmp/evidence.json"), evidence);
 //        
