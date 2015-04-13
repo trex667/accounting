@@ -1,12 +1,9 @@
 package de.schreibvehler.accounting.entities;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
-import java.io.File;
+import java.time.*;
 import java.util.Date;
-
-import javax.json.JsonObject;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
@@ -76,17 +73,19 @@ public class EvidenceTest {
         assertThat(evidence).isEqualTo(otherEvidence);
     }
     
-//    @Test
-//    public void blub() throws Exception {
-//        ObjectMapper mapper = new ObjectMapper();
-//        Evidence evidence = new Evidence();
-//        Integer pk = 4711;
-//        evidence.setValue(123.23F);
-//        evidence.setDate(new Date());
-//        evidence.setDescription("description");
-//        evidence.setType(EvidenceType.RLVChr);
-//        
-//        mapper.writeValue(new File("d://tmp/evidence.json"), evidence);
-//        
-//    }
+    @Test
+    public void blub() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Evidence evidence = new Evidence();
+        Integer pk = 4711;
+        
+        LocalDate localDate = LocalDate.of(2015, 4, 1);
+        evidence.setValue(-123.43F);
+        evidence.setDate(Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+        evidence.setDescription("risiko Lebensversicherung Christian April 2015");
+        evidence.setType(EvidenceType.RLVChr);
+        
+        mapper.writeValue(System.out, evidence);
+        
+    }
 }

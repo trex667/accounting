@@ -33,4 +33,14 @@ public class EvidenceEngine {
 //        List<Evidence> evidences = em.createNamedQuery("ALL_EVIDENCES_BY_TYPES", Evidence.class).setParameter(param, value).getResultList();
 //        return evidences;
     }
+
+    public Evidence update(Evidence evidence) {
+        return em.merge(evidence);
+    }
+
+    public void delete(Integer id) {
+        Evidence evidence = new Evidence();
+        evidence.setId(id);
+        em.remove(em.contains(evidence) ? evidence : em.merge(evidence));
+    }
 }
